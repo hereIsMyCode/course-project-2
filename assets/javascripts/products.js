@@ -1,3 +1,6 @@
+/// HATS ///
+
+
 let hat = {
   name: 'xxx',
   price: 'xxx',
@@ -45,7 +48,7 @@ for (var i = 0; i < hats.length; i++) {
   // creating the frist div with the class name accessory col-sm-4
   var parentProduct = document.querySelector('#products');
   var newItem = document.createElement('div');
-  newItem.className = 'accessory col-sm-4';
+  newItem.className = 'accessory col-sm-4 ' + hats[i].color;
   parentProduct.appendChild(newItem);
 
   // creating the second div within the div accessory col-sm-4 with class name card my-3
@@ -104,3 +107,39 @@ for (var i = 0; i < hats.length; i++) {
 
   displayHat(hats);
 }
+
+
+/// FILTERS ///
+
+// Get all buttons
+var btns = document.getElementsByClassName('btn-group')[0].getElementsByClassName('btn btn-outline-secondary');
+
+// add an addEventListener to all buttons and intiates the highlightSelectedFilterAndFilterHatsByColor function
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function highlightSelectedFilterAndFilterHatsByColor() {
+
+    //deletes active class at current element and adds activ calss on clicked button
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+
+    //hides all hats-elements once clicked on any button
+    let hideElements = document.getElementsByClassName('accessory');
+      for (let j = 0; j < hideElements.length; j++) {
+        hideElements[j].style.display = "none";
+
+        // displays again all hats if pressd on "all" button
+        if (btns[i].textContent.toLowerCase() == "all") {
+          for (let k = 0; k < hideElements.length; k++) {
+            hideElements[k].style.display = "block"
+          }
+        }
+        // displays the filtered color of the hats
+        if (hideElements[j].className == "accessory col-sm-4 " + btns[i].textContent.toLowerCase()) {
+          hideElements[j].style.display = "block";
+        }
+      }
+  });
+}
+
+/// SOCKS AND SUNGLASSES ///
