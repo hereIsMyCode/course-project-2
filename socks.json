@@ -1,4 +1,4 @@
-[
+{ "socks" : [
   {
     "name":"Pop socks",
     "price":1.99,
@@ -59,4 +59,4 @@
     "color":"green",
     "imageHref":"./assets/images/green/socks/3.png"
   }
-]
+]}

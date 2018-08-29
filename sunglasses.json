@@ -1,4 +1,4 @@
-[
+{ "sunglasses": [
   {
     "name":"Aviators",
     "price":35.99,
@@ -64,5 +64,5 @@
     "price":27.99,
     "color":"green",
     "imageHref":"./assets/images/green/sunglasses/4.png"
-  },
-]
+  }
+]}
