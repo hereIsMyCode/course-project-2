@@ -1,4 +1,4 @@
-/// accessories ///
+/// ACCESSORIES ///
 
 
 // let accessory = {
@@ -89,7 +89,6 @@ function displayAccessory(accessories) {
     }
 }
 
-
 // creating the 12 accessories according to the static html
 var accessory1 = new Accessory("Baseball cap", 11.99, "red", "./assets/images/red/hats/1.png");
 var accessory2 = new Accessory("Baseball cap", 11.99, "blue", "./assets/images/blue/hats/1.png");
@@ -108,11 +107,8 @@ var accessory12 = new Accessory("Triby", 10.99, "yellow", "./assets/images/yello
 var accessories = [];
 accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
 
-// runnning the displayaccessory function as many times as the array accessories has elements
-
+// runnning the displayaccessory function
 displayAccessory(accessories);
-
-
 
 
 /// FILTERS ///
@@ -147,6 +143,7 @@ for (let i = 0; i < btns.length; i++) {
       }
   });
 }
+
 
 /// SOCKS AND SUNGLASSES ///
 
@@ -191,12 +188,13 @@ for (let i = 0; i < btnsNav.length; i++) {
     });
 }
 
+
 // THE WISHLIST
 
 // Creating a variable to store the index of the clicked button
 var indexClicked;
 
-// cearting a function that makes the EventListener live (not static)
+// Creating a function that makes the EventListener live (not static)
 function live (eventType, elementQuerySelector, cb) {
     document.addEventListener(eventType, function (event) {
         var qs = document.querySelectorAll(elementQuerySelector);
@@ -208,16 +206,12 @@ function live (eventType, elementQuerySelector, cb) {
             if (index > -1) {
                 indexClicked = index;
                 cb.call(el, event);
-
             }
         }
     });
 }
-// var storedV
-var storedValue1;
-var storedValue2;
-var storedValue3;
 
+// Addwish Function that stores up to three items in local storage and alerts the forth time
 function addToWishlist(accessory) {
     if (localStorage.getItem('accessory1') === null) {
       let accessory1asJson = JSON.stringify(accessory);
@@ -231,40 +225,9 @@ function addToWishlist(accessory) {
     } else {
       alert("Sorry, but your wishlist is full!!")
     }
-    storedValue1 = localStorage.getItem('accessory1');
-    storedValue2 = localStorage.getItem('accessory2');
-    storedValue3 = localStorage.getItem('accessory3');
   }
 
-  // let accessory1asJson = JSON.stringify(accessory);
-  // localStorage.removeItem('accessory1');
-  // localStorage.setItem('accessory1', accessory1asJson);
-
-
-
-
+// call live function on the buttons with an function call addToWishList event
 live('click', '.btn-outline-primary', function(event) {
   addToWishlist(accessories[indexClicked]);
   });
-
-
-
-
-
-
-
-
-
-
-//
-// Get all the wishlist buttons
-// var btnsWish = document.getElementsByClassName('btn btn-outline-primary');
-//
-// var category2;
-//
-// for (let i = 0; i < btnsWish.length; i++) {
-//   btnsWish[i].addEventListener("click", function addToWishlist() {
-//   category2 = accessories[i];
-//   alert(category2)
-//   });
-// }
