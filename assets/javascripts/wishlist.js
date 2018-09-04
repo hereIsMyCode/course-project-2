@@ -1,5 +1,5 @@
 // create an array to store the values from the local storage
-var storedValues = [];
+let storedValues = [];
 
 // create a function that gets the values from local storage as JSON-objects
 function getAccessories() {
@@ -17,77 +17,77 @@ function getAccessories() {
 
 // function that displays the items of the wishlist
 function displayWishlist() {
-  for (var i = 0; i < storedValues.length; i++) {
+  for (let i = 0; i < storedValues.length; i++) {
 
     // creating the frist div with the class name accessory col-sm-4
-    var parentProduct = document.querySelector('#products');
-    var newItem = document.createElement('div');
+    let parentProduct = document.querySelector('#products');
+    let newItem = document.createElement('div');
     newItem.className = 'accessory col-sm-4 ' + storedValues[i].color;
     parentProduct.appendChild(newItem);
 
     // creating the second div within the div accessory col-sm-4 with class name card my-3
-    var parentProduct = document.getElementsByClassName("accessory col-sm-4")[0+i];
-    var newItem = document.createElement('div');
+    parentProduct = document.getElementsByClassName("accessory col-sm-4")[0+i];
+    newItem = document.createElement('div');
     newItem.className = 'acard my-3';
     parentProduct.appendChild(newItem);
 
     // creating the third div within the div card my-3 with the class name currency btn btn-light disabled
-    var parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-    var newItem = document.createElement('div');
+    parentProduct = document.getElementsByClassName("acard my-3")[0+i];
+    newItem = document.createElement('div');
     newItem.className = 'currency btn btn-light disabled';
     newItem.textContent = storedValues[i].price;
     parentProduct.appendChild(newItem);
 
     // creating the img within the div card my-3
-    var parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-    var newItem = document.createElement('img');
+    parentProduct = document.getElementsByClassName("acard my-3")[0+i];
+    newItem = document.createElement('img');
     newItem.className = 'card-img-top';
     newItem.src = storedValues[i].imageHref;
     newItem.alt = "Image of " + storedValues[i].name;
     parentProduct.appendChild(newItem);
 
     // creating the the forth div within the div card my-3
-    var parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-    var newItem = document.createElement('div');
+    parentProduct = document.getElementsByClassName("acard my-3")[0+i];
+    newItem = document.createElement('div');
     newItem.className = 'card-body text-center';
     parentProduct.appendChild(newItem);
 
     // creating the h5 title
-    var parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-    var newItem = document.createElement('h5');
+    parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
+    newItem = document.createElement('h5');
     newItem.className = 'card-title';
     newItem.textContent = storedValues[i].name;
     parentProduct.appendChild(newItem);
 
     // creating the color paragraph
-    var parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-    var newItem = document.createElement('p');
+    parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
+    newItem = document.createElement('p');
     newItem.className = 'card-tex';
-    var firstText = document.createTextNode('Color: ');
-    var em = document.createElement('em');
+    let firstText = document.createTextNode('Color: ');
+    let em = document.createElement('em');
     em.textContent = storedValues[i].color;
     newItem.appendChild(firstText);
     newItem.appendChild(em);
     parentProduct.appendChild(newItem);
 
     // creating the h5 title
-    var parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-    var newItem = document.createElement('button');
+    parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
+    newItem = document.createElement('button');
     newItem.className = 'btn btn-outline-danger';
     newItem.textContent = 'Remove';
     parentProduct.appendChild(newItem);
   }
 }
 
-// Variable to store the index of the clicked button
-var indexClicked;
+// variable to store the index of the clicked button
+let indexClicked;
 
 // Function that makes the EventListener live (not static)
 function live (eventType, elementQuerySelector, cb) {
     document.addEventListener(eventType, function (event) {
-        var qs = document.querySelectorAll(elementQuerySelector);
+        let qs = document.querySelectorAll(elementQuerySelector);
         if (qs) {
-            var el = event.target, index = -1;
+            let el = event.target, index = -1;
             while (el && ((index = Array.prototype.indexOf.call(qs, el)) === -1)) {
                 el = el.parentElement;
             }
@@ -100,9 +100,9 @@ function live (eventType, elementQuerySelector, cb) {
     });
 }
 
-// Function that removes items from wishlist (html, var storedValues AND localStorage)
+// Function that removes items from wishlist (html, let storedValues AND localStorage)
 function removeFromWishList(key, htmlComponent) {
-  var elem = document.getElementsByClassName(htmlComponent);
+  let elem = document.getElementsByClassName(htmlComponent);
   elem[indexClicked].parentNode.removeChild(elem[indexClicked]);
   storedValues.splice([indexClicked], 1);
   localStorage.removeItem(key);
