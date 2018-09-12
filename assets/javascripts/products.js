@@ -135,9 +135,7 @@ function filterHatsByColor(clickedIndex) {
       hideElements[j].style.display = "block";
     }
     if (btns[clickedIndex].textContent.toLowerCase() == "all") {
-      for (let k = 0; k < hideElements.length; k++) {
-        hideElements[k].style.display = "block"
-      }
+        hideElements[j].style.display = "block";
     }
   }
 }
@@ -153,42 +151,6 @@ for (let i = 0; i < btns.length; i++) {
 };
 
 
-
-
-
-// //
-// //
-//
-// // Get all buttons
-// let btns = document.getElementsByClassName('btn-group').getElementsByClassName('btn btn-outline-secondary');
-// //
-// // add an addEventListener to all buttons and intiates the highlightSelectedFilterAndFilteraccessoriesByColor function
-// for (let i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function highlightSelectedFilterAndFilteraccessoriesByColor() {
-//
-//     //deletes active class at current element and adds activ calss on clicked button
-//     let current = document.getElementsByClassName("active");
-//     current[0].className = current[0].className.replace(" active", "");
-//     this.className += " active";
-//
-//     //hides all accessories-elements once clicked on any button
-//     let hideElements = document.getElementsByClassName('accessory');
-//       for (let j = 0; j < hideElements.length; j++) {
-//         hideElements[j].style.display = "none";
-//
-        // displays again all accessories if pressd on "all" button
-        // if (btns[i].textContent.toLowerCase() == "all") {
-        //   for (let k = 0; k < hideElements.length; k++) {
-        //     hideElements[k].style.display = "block"
-        //   }
-//         }
-//         // displays the filtered color of the accessories
-//         if (hideElements[j].className == "accessory col-sm-4 " + btns[i].textContent.toLowerCase()) {
-//           hideElements[j].style.display = "block";
-//         }
-//       }
-//   });
-// }
 
 //
 // /// SOCKS AND SUNGLASSES ///
