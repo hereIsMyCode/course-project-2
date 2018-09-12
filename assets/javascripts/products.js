@@ -128,13 +128,18 @@ function highlightSelectedFilter(clickedIndex) {
 function filterHatsByColor(clickedIndex) {
   //hides all accessories-elements
   let hideElements = document.getElementsByClassName('accessory');
-    for (let j = 0; j < hideElements.length; j++) {
-      hideElements[j].style.display = "none";
-      // displays the filtered color of the accessories
-      if (hideElements[j].className == "accessory col-sm-4 " + btns[clickedIndex].textContent.toLowerCase()) {
-        hideElements[j].style.display = "block";
+  for (let j = 0; j < hideElements.length; j++) {
+    hideElements[j].style.display = "none";
+    // displays the filtered color of the accessories
+    if (hideElements[j].className == "accessory col-sm-4 " + btns[clickedIndex].textContent.toLowerCase()) {
+      hideElements[j].style.display = "block";
+    }
+    if (btns[clickedIndex].textContent.toLowerCase() == "all") {
+      for (let k = 0; k < hideElements.length; k++) {
+        hideElements[k].style.display = "block"
       }
     }
+  }
 }
 
 // Get all buttons
@@ -171,11 +176,11 @@ for (let i = 0; i < btns.length; i++) {
 //       for (let j = 0; j < hideElements.length; j++) {
 //         hideElements[j].style.display = "none";
 //
-//         // displays again all accessories if pressd on "all" button
-//         if (btns[i].textContent.toLowerCase() == "all") {
-//           for (let k = 0; k < hideElements.length; k++) {
-//             hideElements[k].style.display = "block"
-//           }
+        // displays again all accessories if pressd on "all" button
+        // if (btns[i].textContent.toLowerCase() == "all") {
+        //   for (let k = 0; k < hideElements.length; k++) {
+        //     hideElements[k].style.display = "block"
+        //   }
 //         }
 //         // displays the filtered color of the accessories
 //         if (hideElements[j].className == "accessory col-sm-4 " + btns[i].textContent.toLowerCase()) {
