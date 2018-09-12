@@ -166,6 +166,14 @@ function loadRemoteAccessories(clickedIndex) {
 
   // grab category
   let category = btnsNav[clickedIndex].textContent.toLowerCase();
+  // display hats if hats is clicked
+  if (category === "hats") {
+     accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
+     for (let i = 0; i < 12; i++) {
+       displayAccessory(accessories[i]);
+     }
+  // fetch remote accessories and display them
+  } else {
   fetch(String(category) + ".json")
   .then(function(response) { return response.json(); })
   .then(function(json) {
@@ -186,6 +194,7 @@ function loadRemoteAccessories(clickedIndex) {
         }
       }
     });
+  }
 }
 
 // Get all buttons
@@ -197,49 +206,6 @@ for (let i = 0; i < btnsNav.length; i++) {
        loadRemoteAccessories([i]);
   })
 };
-
-//
-//
-// // Get all buttons
-// let btnsNav = document.getElementsByClassName('nav-link btn btn-outline-secondary mr-3');
-//
-// // check the buttons for a click event and trigger deleteAccssoriesAndDisplayNewOnes function
-// for (let i = 0; i < btnsNav.length; i++) {
-//   btnsNav[i].addEventListener("click", function deleteAccssoriesAndDisplayNewOnes () {
-//     //delete all html
-//     let elem = document.getElementsByClassName("accessory col-sm-4");
-//     // delete accessories array
-//     for (let i = accessories.length-1; i >= 0; i--) {
-//       elem[i].parentNode.removeChild(elem[i]);
-//       accessories.splice(i, 1);
-//     };
-//     // grab category
-//     let category = this.textContent.toLowerCase();
-//       if (category === "hats") {
-//         accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
-//         displayAccessory(accessories);
-//       } else {
-//           fetch(String(category) + ".json")
-//           .then(function(response) { return response.json(); })
-//           .then(function(json) {
-//             if (category === "socks") {
-//               for (let i = 0; i < json.socks.length; i++) {
-//                 accessories.push(json.socks[i]);
-//               }
-//             } else if (category === "sunglasses") {
-//                 for (let i = 0; i < json.sunglasses.length; i++) {
-//                   accessories.push(json.sunglasses[i]);
-//                 }
-//               } else if (category === "gloves") {
-//                 for (let i = 0; i < json.gloves.length; i++) {
-//                   accessories.push(json.gloves[i]);
-//                 }
-//               }
-//           displayAccessory(accessories);
-//           });
-//         }
-//     });
-// }
 
 //
 // // THE WISHLIST
