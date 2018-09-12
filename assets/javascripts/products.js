@@ -42,80 +42,97 @@ let accessories = [];
 accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
 
 
-// // function to create for each product the html
-// function displayAccessory(accessories) {
-//
-//   for (let i = 0; i < accessories.length; i++) {
-//
-//     // creating the frist div with the class name accessory col-sm-4
-//     let parentProduct = document.querySelector('#products');
-//     let newItem = document.createElement('div');
-//     newItem.className = 'accessory col-sm-4 ' + accessories[i].color;
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the second div within the div accessory col-sm-4 with class name card my-3
-//     parentProduct = document.getElementsByClassName("accessory col-sm-4")[0+i];
-//     newItem = document.createElement('div');
-//     newItem.className = 'acard my-3';
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the third div within the div card my-3 with the class name currency btn btn-light disabled
-//     parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-//     newItem = document.createElement('div');
-//     newItem.className = 'currency btn btn-light disabled';
-//     newItem.textContent = accessories[i].price;
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the img within the div card my-3
-//     parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-//     newItem = document.createElement('img');
-//     newItem.className = 'card-img-top';
-//     newItem.src = accessories[i].imageHref;
-//     newItem.alt = "Image of " + accessories[i].name;
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the the forth div within the div card my-3
-//     parentProduct = document.getElementsByClassName("acard my-3")[0+i];
-//     newItem = document.createElement('div');
-//     newItem.className = 'card-body text-center';
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the h5 title
-//     parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-//     newItem = document.createElement('h5');
-//     newItem.className = 'card-title';
-//     newItem.textContent = accessories[i].name;
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the color paragraph
-//     parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-//     newItem = document.createElement('p');
-//     newItem.className = 'card-tex';
-//     let firstText = document.createTextNode('Color: ');
-//     let em = document.createElement('em');
-//     em.textContent = accessories[i].color;
-//     newItem.appendChild(firstText);
-//     newItem.appendChild(em);
-//     parentProduct.appendChild(newItem);
-//
-//     // creating the h5 title
-//     parentProduct = document.getElementsByClassName("card-body text-center")[0+i];
-//     newItem = document.createElement('button');
-//     newItem.className = 'btn btn-outline-primary';
-//     newItem.textContent = 'Add to wishlist!';
-//     parentProduct.appendChild(newItem);
-//     }
-// }
-//
+// function to create for each product the html
+function displayAccessory(accessories) {
 
-// // runnning the displayaccessory function
-// displayAccessory(accessories);
+    // creating the frist div with the class name accessory col-sm-4
+    let parentProduct = document.querySelector('#products');
+    let newItem = document.createElement('div');
+    newItem.className = 'accessory col-sm-4 ' + accessories.color;
+    parentProduct.appendChild(newItem);
+
+    // creating the second div within the div accessory col-sm-4 with class name card my-3
+    let divs = document.getElementsByClassName("accessory col-sm-4");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('div');
+    newItem.className = 'acard my-3';
+    parentProduct.appendChild(newItem);
+
+    // creating the third div within the div card my-3 with the class name currency btn btn-light disabled
+    divs = document.getElementsByClassName("acard my-3");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('div');
+    newItem.className = 'currency btn btn-light disabled';
+    newItem.textContent = accessories.price;
+    parentProduct.appendChild(newItem);
+
+    // creating the img within the div card my-3
+    divs = document.getElementsByClassName("acard my-3");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('img');
+    newItem.className = 'card-img-top';
+    newItem.src = accessories.imageHref;
+    newItem.alt = "Image of " + accessories.name;
+    parentProduct.appendChild(newItem);
+
+    // creating the the forth div within the div card my-3
+    divs = document.getElementsByClassName("acard my-3");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('div');
+    newItem.className = 'card-body text-center';
+    parentProduct.appendChild(newItem);
+
+    // creating the h5 title
+    divs = document.getElementsByClassName("card-body text-center");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('h5');
+    newItem.className = 'card-title';
+    newItem.textContent = accessories.name;
+    parentProduct.appendChild(newItem);
+
+    // creating the color paragraph
+    divs = document.getElementsByClassName("card-body text-center");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('p');
+    newItem.className = 'card-tex';
+    let firstText = document.createTextNode('Color: ');
+    let em = document.createElement('em');
+    em.textContent = accessories.color;
+    newItem.appendChild(firstText);
+    newItem.appendChild(em);
+    parentProduct.appendChild(newItem);
+
+    // creating the h5 title
+    divs = document.getElementsByClassName("card-body text-center");
+    parentProduct = divs[divs.length - 1];
+    newItem = document.createElement('button');
+    newItem.className = 'btn btn-outline-primary';
+    newItem.textContent = 'Add to wishlist!';
+    parentProduct.appendChild(newItem);
+}
+
+for (let i = 0; i < accessories.length; i++) {
+  displayAccessory(accessories[i]);
+}
+
+
+// <div class="accessory col-sm-4">
+//   <div class="card my-3">
+//     <div class="currency btn btn-light disabled">11.99</div>
+//     <img class="card-img-top" src="./assets/images/red/hats/1.png" alt="Image of baseball cap">
+//     <div class="card-body text-center">
+//       <h5 class="card-title">Baseball cap</h5>
+//       <p class="card-text">Color: <em>red</em></p>
+//       <button class="btn btn-outline-primary">Add to wishlist!</button>
+//     </div>
+//   </div>
+// </div>
 
 //
 // /// FILTERS ///
 //
 // // Get all buttons
-// let btns = document.getElementsByClassName('btn-group')[0].getElementsByClassName('btn btn-outline-secondary');
+// let btns = document.getElementsByClassName('btn-group').getElementsByClassName('btn btn-outline-secondary');
 //
 // // add an addEventListener to all buttons and intiates the highlightSelectedFilterAndFilteraccessoriesByColor function
 // for (let i = 0; i < btns.length; i++) {
