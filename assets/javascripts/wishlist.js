@@ -92,6 +92,8 @@ parentProduct.appendChild(newItem);
 
 }
 
+
+
 function displayWishlist() {
   for (let i = 0; i < storedValues.length; i++) {
   displayAccessoryGlobal(storedValues[i])
@@ -99,7 +101,12 @@ function displayWishlist() {
   }
 }
 
-displayWishlist();
+try {
+  displayWishlist();
+} catch(error) {
+  console.log("That  code is broken. Error: " + error);
+}
+
 
 
 // // function that displays the items of the wishlist
@@ -195,13 +202,13 @@ displayWishlist();
 //   localStorage.removeItem(key);
 // }
 //
-// // call the functions with an error handling
-// try {
-//   getAccessories();
-//   displayWishlist();
-//   live('click', '.btn-outline-danger', function(event) {
-//     removeFromWishList('accessory'+[indexClicked+1], "accessory col-sm-4");
-//     });
-// } catch(error) {
-//   console.log("That  code is broken. Error: " + error);
-// }
+// call the functions with an error handling
+try {
+  getAccessories();
+  displayWishlist();
+  live('click', '.btn-outline-danger', function(event) {
+    removeFromWishList('accessory'+[indexClicked+1], "accessory col-sm-4");
+    });
+} catch(error) {
+  console.log("That  code is broken. Error: " + error);
+}
