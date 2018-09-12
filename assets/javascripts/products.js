@@ -102,12 +102,13 @@ function displayAccessory(accessories) {
     newItem.appendChild(em);
     parentProduct.appendChild(newItem);
 
-    // creating the h5 title
+    // creating the button
     divs = document.getElementsByClassName("card-body text-center");
     parentProduct = divs[divs.length - 1];
     newItem = document.createElement('button');
     newItem.className = 'btn btn-outline-primary';
     newItem.textContent = 'Add to wishlist!';
+    newItem.addEventListener('click', function() {addToWishList(accessories)});
     parentProduct.appendChild(newItem);
 }
 
@@ -207,46 +208,21 @@ for (let i = 0; i < btnsNav.length; i++) {
   })
 };
 
-//
-// // THE WISHLIST
-//
-// // Creating a variable to store the index of the clicked button
-// let indexClicked;
-//
-// // Creating a function that makes the EventListener live (not static)
-// function live (eventType, elementQuerySelector, cb) {
-//     document.addEventListener(eventType, function (event) {
-//         let qs = document.querySelectorAll(elementQuerySelector);
-//         if (qs) {
-//             let el = event.target, index = -1;
-//             while (el && ((index = Array.prototype.indexOf.call(qs, el)) === -1)) {
-//                 el = el.parentElement;
-//             }
-//             if (index > -1) {
-//                 indexClicked = index;
-//                 cb.call(el, event);
-//             }
-//         }
-//     });
-// }
-//
-// // Addwish Function that stores up to three items in local storage and alerts the forth time
-// function addToWishlist(accessory) {
-//     if (localStorage.getItem('accessory1') === null) {
-//       let accessory1asJson = JSON.stringify(accessory);
-//       localStorage.setItem('accessory1', accessory1asJson);
-//     } else if (localStorage.getItem('accessory2') === null) {
-//         let accessory2asJson = JSON.stringify(accessory);
-//         localStorage.setItem('accessory2', accessory2asJson);
-//     } else if (localStorage.getItem('accessory3') === null) {
-//         let accessory3asJson = JSON.stringify(accessory);
-//         localStorage.setItem('accessory3', accessory3asJson);
-//     } else {
-//       alert("Sorry, but your wishlist is full!!")
-//     }
-//   }
-//
-// // call live function on the buttons with an function call addToWishList event
-// live('click', '.btn-outline-primary', function(event) {
-//   addToWishlist(accessories[indexClicked]);
-//   });
+
+// THE WISHLIST
+
+// addToWishList Function that stores up to three items in local storage and alerts the forth time
+function addToWishList(accessory) {
+    if (localStorage.getItem('accessory1') === null) {
+      let accessory1asJson = JSON.stringify(accessory);
+      localStorage.setItem('accessory1', accessory1asJson);
+    } else if (localStorage.getItem('accessory2') === null) {
+        let accessory2asJson = JSON.stringify(accessory);
+        localStorage.setItem('accessory2', accessory2asJson);
+    } else if (localStorage.getItem('accessory3') === null) {
+        let accessory3asJson = JSON.stringify(accessory);
+        localStorage.setItem('accessory3', accessory3asJson);
+    } else {
+      alert("Sorry, but your wishlist is full!!")
+    }
+  }
