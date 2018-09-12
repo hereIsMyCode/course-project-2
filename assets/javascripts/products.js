@@ -1,28 +1,28 @@
 /// ACCESSORIES ///
 
-let accessory = {
-  name: 'xxx',
-  price: 'xxx',
-  color: 'xxx',
-  imageHref: 'xxx',
-  properties: function() {
-    toString(this.name + "color: " + this.color + "price: " + this.price)
+// let accessory = {
+//   name: 'xxx',
+//   price: 'xxx',
+//   color: 'xxx',
+//   imageHref: 'xxx',
+//   properties: function() {
+//     toString(this.name + "color: " + this.color + "price: " + this.price)
+//   }
+// }
+
+let accessory;
+
+// defining a costructor function for the accessories
+function Accessory(name, price, color, imageHref) {
+  this.name = name;
+  this.price = price;
+  this.color = color;
+  this.imageHref = imageHref;
+  this.toString = function() {
+    return this.name + " - color: " + this.color + " - price: " + this.price;
   }
 }
 
-// let accessory;
-//
-// // defining a costructor function for the accessories
-// function Accessory(name, price, color, imageHref) {
-//   this.name = name;
-//   this.price = price;
-//   this.color = color;
-//   this.imageHref = imageHref;
-//   this.toString = function() {
-//     return this.name + " - color: " + this.color + " - price: " + this.price;
-//   }
-// }
-//
 // // function to create for each product the html
 // function displayAccessory(accessories) {
 //
