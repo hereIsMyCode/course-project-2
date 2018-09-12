@@ -116,7 +116,6 @@ for (let i = 0; i < accessories.length; i++) {
 };
 
 
-//
 /// FILTERS ///
 
 function highlightSelectedFilter() {
@@ -126,12 +125,19 @@ function highlightSelectedFilter() {
   this.className += " active";
 }
 
+function filterHatsByColor() {
+
+}
+
 // Get all buttons
 let btns = document.getElementsByClassName('btn-group')[0].getElementsByClassName('btn btn-outline-secondary');
-// add an addEventListener to all buttons and intiates the highlightSelectedFilter function
+// add an addEventListener to all buttons and intiates the highlightSelectedFilter and filterHatsByColor functions
 for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", highlightSelectedFilter);
-}
+  btns[i].addEventListener('event', function() {
+       highlightSelectedFilter();
+       filterHatsByColor();
+  })
+};
 
 
 
