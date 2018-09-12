@@ -116,7 +116,6 @@ for (let i = 0; i < accessories.length; i++) {
 };
 
 
-
 //
 /// FILTERS ///
 
