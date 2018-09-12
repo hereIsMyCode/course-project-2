@@ -152,8 +152,53 @@ for (let i = 0; i < btns.length; i++) {
 
 
 
+
+/// SOCKS AND SUNGLASSES ///
+
+function loadRemoteAccessories(clickedIndex) {
+  //delete all html
+  let elem = document.getElementsByClassName("accessory col-sm-4");
+  // delete accessories array
+  for (let i = accessories.length-1; i >= 0; i--) {
+    elem[i].parentNode.removeChild(elem[i]);
+    accessories.splice(i, 1);
+  };
+
+  // grab category
+  let category = btnsNav[clickedIndex].textContent.toLowerCase();
+  fetch(String(category) + ".json")
+  .then(function(response) { return response.json(); })
+  .then(function(json) {
+    if (category === "socks") {
+      for (let i = 0; i < json.socks.length; i++) {
+        accessories.push(json.socks[i]);
+        displayAccessory(accessories[i]);
+      }
+    } else if (category === "sunglasses") {
+        for (let i = 0; i < json.sunglasses.length; i++) {
+          accessories.push(json.sunglasses[i]);
+          displayAccessory(accessories[i]);
+        }
+      } else if (category === "gloves") {
+        for (let i = 0; i < json.gloves.length; i++) {
+          accessories.push(json.gloves[i]);
+          displayAccessory(accessories[i]);
+        }
+      }
+    });
+}
+
+// Get all buttons
+let btnsNav = document.getElementsByClassName('nav-link btn btn-outline-secondary mr-3');
+
+// add an addEventListener to all buttons and intiates the highlightSelectedFilter and filterHatsByColor functions
+for (let i = 0; i < btnsNav.length; i++) {
+  btnsNav[i].addEventListener('click', function() {
+       loadRemoteAccessories([i]);
+  })
+};
+
 //
-// /// SOCKS AND SUNGLASSES ///
 //
 // // Get all buttons
 // let btnsNav = document.getElementsByClassName('nav-link btn btn-outline-secondary mr-3');
@@ -195,7 +240,7 @@ for (let i = 0; i < btns.length; i++) {
 //         }
 //     });
 // }
-//
+
 //
 // // THE WISHLIST
 //
