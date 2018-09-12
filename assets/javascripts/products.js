@@ -23,6 +23,25 @@ function Accessory(name, price, color, imageHref) {
   }
 }
 
+// creating the 12 accessories according to the static html
+let accessory1 = new Accessory("Baseball cap", 11.99, "red", "./assets/images/red/hats/1.png");
+let accessory2 = new Accessory("Baseball cap", 11.99, "blue", "./assets/images/blue/hats/1.png");
+let accessory3 = new Accessory("Baseball cap", 11.99, "yellow", "./assets/images/yellow/hats/1.png");
+let accessory4 = new Accessory("Baseball cap", 11.99, "green", "./assets/images/green/hats/1.png");
+let accessory5 = new Accessory("Beanie", 17.99, "red", "./assets/images/red/hats/2.png");
+let accessory6 = new Accessory("Beanie", 17.99, "blue", "./assets/images/blue/hats/2.png");
+let accessory7 = new Accessory("Beanie", 17.99, "green", "./assets/images/green/hats/2.png");
+let accessory8 = new Accessory("Straw hat", 10.99, "yellow", "./assets/images/yellow/hats/3.png");
+let accessory9 = new Accessory("Straw hat", 10.99, "blue", "./assets/images/blue/hats/3.png");
+let accessory10 = new Accessory("Triby", 10.99, "red", "./assets/images/red/hats/4.png");
+let accessory11 = new Accessory("Triby", 10.99, "blue", "./assets/images/blue/hats/4.png");
+let accessory12 = new Accessory("Triby", 10.99, "yellow", "./assets/images/yellow/hats/4.png");
+
+// creating an array and adding the 12 accessories
+let accessories = [];
+accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
+
+
 // // function to create for each product the html
 // function displayAccessory(accessories) {
 //
@@ -88,27 +107,10 @@ function Accessory(name, price, color, imageHref) {
 //     }
 // }
 //
-// // creating the 12 accessories according to the static html
-// let accessory1 = new Accessory("Baseball cap", 11.99, "red", "./assets/images/red/hats/1.png");
-// let accessory2 = new Accessory("Baseball cap", 11.99, "blue", "./assets/images/blue/hats/1.png");
-// let accessory3 = new Accessory("Baseball cap", 11.99, "yellow", "./assets/images/yellow/hats/1.png");
-// let accessory4 = new Accessory("Baseball cap", 11.99, "green", "./assets/images/green/hats/1.png");
-// let accessory5 = new Accessory("Beanie", 17.99, "red", "./assets/images/red/hats/2.png");
-// let accessory6 = new Accessory("Beanie", 17.99, "blue", "./assets/images/blue/hats/2.png");
-// let accessory7 = new Accessory("Beanie", 17.99, "green", "./assets/images/green/hats/2.png");
-// let accessory8 = new Accessory("Straw hat", 10.99, "yellow", "./assets/images/yellow/hats/3.png");
-// let accessory9 = new Accessory("Straw hat", 10.99, "blue", "./assets/images/blue/hats/3.png");
-// let accessory10 = new Accessory("Triby", 10.99, "red", "./assets/images/red/hats/4.png");
-// let accessory11 = new Accessory("Triby", 10.99, "blue", "./assets/images/blue/hats/4.png");
-// let accessory12 = new Accessory("Triby", 10.99, "yellow", "./assets/images/yellow/hats/4.png");
-//
-// // creating an array and adding the 12 accessories
-// let accessories = [];
-// accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
-//
+
 // // runnning the displayaccessory function
 // displayAccessory(accessories);
-//
+
 //
 // /// FILTERS ///
 //
