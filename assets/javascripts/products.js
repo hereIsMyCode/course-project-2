@@ -10,6 +10,8 @@
 //   }
 // }
 
+localStorage.clear();
+
 let accessory;
 
 // defining a costructor function for the accessories
@@ -104,7 +106,7 @@ function displayAccessoryGlobal(accessories) {
 
 }
 
-function displayAccessoryButtonA() {
+function displayAccessoryButtonA(accessories) {
 
   // creating the button
   divs = document.getElementsByClassName("card-body text-center");
@@ -177,7 +179,8 @@ function loadRemoteAccessories(clickedIndex) {
   if (category === "hats") {
      accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, accessory6, accessory7, accessory8, accessory9, accessory10, accessory11, accessory12);
      for (let i = 0; i < 12; i++) {
-       displayAccessory(accessories[i]);
+       displayAccessoryGlobal(accessories[i]);
+       displayAccessoryButtonA(accessories[i]);
      }
   // fetch remote accessories and display them
   } else {
@@ -187,17 +190,20 @@ function loadRemoteAccessories(clickedIndex) {
     if (category === "socks") {
       for (let i = 0; i < json.socks.length; i++) {
         accessories.push(json.socks[i]);
-        displayAccessory(accessories[i]);
+        displayAccessoryGlobal(accessories[i]);
+        displayAccessoryButtonA(accessories[i]);
       }
     } else if (category === "sunglasses") {
         for (let i = 0; i < json.sunglasses.length; i++) {
           accessories.push(json.sunglasses[i]);
-          displayAccessory(accessories[i]);
+          displayAccessoryGlobal(accessories[i]);
+          displayAccessoryButtonA(accessories[i]);
         }
       } else if (category === "gloves") {
         for (let i = 0; i < json.gloves.length; i++) {
           accessories.push(json.gloves[i]);
-          displayAccessory(accessories[i]);
+          displayAccessoryGlobal(accessories[i]);
+          displayAccessoryButtonA(accessories[i]);
         }
       }
     });
