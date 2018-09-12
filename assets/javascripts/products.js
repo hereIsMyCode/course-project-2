@@ -43,7 +43,7 @@ accessories.push(accessory1, accessory2, accessory3, accessory4, accessory5, acc
 
 
 // function to create for each product the html
-function displayAccessory(accessories) {
+function displayAccessoryGlobal(accessories) {
 
     // creating the frist div with the class name accessory col-sm-4
     let parentProduct = document.querySelector('#products');
@@ -102,18 +102,24 @@ function displayAccessory(accessories) {
     newItem.appendChild(em);
     parentProduct.appendChild(newItem);
 
-    // creating the button
-    divs = document.getElementsByClassName("card-body text-center");
-    parentProduct = divs[divs.length - 1];
-    newItem = document.createElement('button');
-    newItem.className = 'btn btn-outline-primary';
-    newItem.textContent = 'Add to wishlist!';
-    newItem.addEventListener('click', function() {addToWishList(accessories)});
-    parentProduct.appendChild(newItem);
+}
+
+function displayAccessoryButtonA() {
+
+  // creating the button
+  divs = document.getElementsByClassName("card-body text-center");
+  parentProduct = divs[divs.length - 1];
+  newItem = document.createElement('button');
+  newItem.className = 'btn btn-outline-primary';
+  newItem.textContent = 'Add to wishlist!';
+  newItem.addEventListener('click', function() {addToWishList(accessories)});
+  parentProduct.appendChild(newItem);
+
 }
 
 for (let i = 0; i < accessories.length; i++) {
-  displayAccessory(accessories[i]);
+  displayAccessoryGlobal(accessories[i]);
+  displayAccessoryButtonA(accessories[i]);
 };
 
 
