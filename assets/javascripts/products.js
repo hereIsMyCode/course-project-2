@@ -113,27 +113,37 @@ function displayAccessory(accessories) {
 
 for (let i = 0; i < accessories.length; i++) {
   displayAccessory(accessories[i]);
+};
+
+
+
+//
+/// FILTERS ///
+
+function highlightSelectedFilter() {
+  //deletes active class at current element and adds activ calss on clicked button
+  let current = document.querySelector(".btn-group .active");
+  current.className = current.className.replace(" active", "");
+  this.className += " active";
+}
+
+// Get all buttons
+let btns = document.getElementsByClassName('btn-group')[0].getElementsByClassName('btn btn-outline-secondary');
+// add an addEventListener to all buttons and intiates the highlightSelectedFilter function
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", highlightSelectedFilter);
 }
 
 
-// <div class="accessory col-sm-4">
-//   <div class="card my-3">
-//     <div class="currency btn btn-light disabled">11.99</div>
-//     <img class="card-img-top" src="./assets/images/red/hats/1.png" alt="Image of baseball cap">
-//     <div class="card-body text-center">
-//       <h5 class="card-title">Baseball cap</h5>
-//       <p class="card-text">Color: <em>red</em></p>
-//       <button class="btn btn-outline-primary">Add to wishlist!</button>
-//     </div>
-//   </div>
-// </div>
 
-//
-// /// FILTERS ///
-//
+
+
+
+
+
 // // Get all buttons
 // let btns = document.getElementsByClassName('btn-group').getElementsByClassName('btn btn-outline-secondary');
-//
+// //
 // // add an addEventListener to all buttons and intiates the highlightSelectedFilterAndFilteraccessoriesByColor function
 // for (let i = 0; i < btns.length; i++) {
 //   btns[i].addEventListener("click", function highlightSelectedFilterAndFilteraccessoriesByColor() {
@@ -161,7 +171,7 @@ for (let i = 0; i < accessories.length; i++) {
 //       }
 //   });
 // }
-//
+
 //
 // /// SOCKS AND SUNGLASSES ///
 //
