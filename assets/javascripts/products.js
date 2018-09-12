@@ -118,24 +118,32 @@ for (let i = 0; i < accessories.length; i++) {
 
 /// FILTERS ///
 
-function highlightSelectedFilter() {
+function highlightSelectedFilter(clickedIndex) {
   //deletes active class at current element and adds activ calss on clicked button
   let current = document.querySelector(".btn-group .active");
   current.className = current.className.replace(" active", "");
-  this.className += " active";
+  btns[clickedIndex].className += " active";
 }
 
-function filterHatsByColor() {
-
+function filterHatsByColor(clickedIndex) {
+  //hides all accessories-elements
+  let hideElements = document.getElementsByClassName('accessory');
+    for (let j = 0; j < hideElements.length; j++) {
+      hideElements[j].style.display = "none";
+      // displays the filtered color of the accessories
+      if (hideElements[j].className == "accessory col-sm-4 " + btns[clickedIndex].textContent.toLowerCase()) {
+        hideElements[j].style.display = "block";
+      }
+    }
 }
 
 // Get all buttons
 let btns = document.getElementsByClassName('btn-group')[0].getElementsByClassName('btn btn-outline-secondary');
 // add an addEventListener to all buttons and intiates the highlightSelectedFilter and filterHatsByColor functions
 for (let i = 0; i < btns.length; i++) {
-  btns[i].addEventListener('event', function() {
-       highlightSelectedFilter();
-       filterHatsByColor();
+  btns[i].addEventListener('click', function() {
+       highlightSelectedFilter([i]);
+       filterHatsByColor([i]);
   })
 };
 
@@ -143,9 +151,9 @@ for (let i = 0; i < btns.length; i++) {
 
 
 
-
-
-
+// //
+// //
+//
 // // Get all buttons
 // let btns = document.getElementsByClassName('btn-group').getElementsByClassName('btn btn-outline-secondary');
 // //
