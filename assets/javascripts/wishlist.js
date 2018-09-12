@@ -1,19 +1,24 @@
-// // create an array to store the values from the local storage
-// let storedValues = [];
-//
-// // create a function that gets the values from local storage as JSON-objects
-// function getAccessories() {
-//   for (let i = 1; i < 4; i++) {
-//     // check if local storage has values, if yes convert them to JSON-objects
-//     if (localStorage.getItem('accessory'+[i]) !== null) {
-//       let stringValue = localStorage.getItem('accessory'+[i]);
-//       let jsObject = JSON.parse(stringValue);
-//       storedValues.push(jsObject);
-//       } else {
-//         break;
-//       }
-//   }
-// }
+
+
+
+// create a function that gets the values from local storage as JSON-objects
+function getAccessories() {
+  let array = [];
+  for (let i = 1; i < 5; i++) {
+    // check if local storage has values, if yes convert them to JSON-objects
+    if (localStorage.getItem('accessory'+[i]) !== null) {
+      let stringValue = localStorage.getItem('accessory'+[i]);
+      let jsObject = JSON.parse(stringValue);
+      array.push(jsObject);
+      } else {
+        return (array);
+        break;
+      }
+  }
+}
+
+let storedValues = getAccessories();
+
 //
 // // function that displays the items of the wishlist
 // function displayWishlist() {
